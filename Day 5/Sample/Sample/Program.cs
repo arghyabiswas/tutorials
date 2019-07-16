@@ -16,7 +16,7 @@ namespace Sample
         public delegate double ExecuteMathOperation(double x, double y);
         public delegate void LogHandler(string message);
 
-        /*
+        /* */
         static void Main(string[] args)
         {
             IMathFunction mathFunction = new MathFunction();
@@ -79,7 +79,7 @@ namespace Sample
 
 
         }
-        */
+       
 
         //Calling Static function
         /*
@@ -156,6 +156,7 @@ namespace Sample
 
         //time event
 
+            /*
         public static void Main()
         {
             // Create a new clock
@@ -174,5 +175,7 @@ namespace Sample
             // Get the clock started
             theClock.Run();
         }
+
+        */
     }
 }

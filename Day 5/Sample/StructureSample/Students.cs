@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace StructureSample
 {
-    public struct Student
+    public struct Employee
     {
         int id;
         int zipcode;
         double salary;
         // all the members of the struct has to be initialized in this way  
-        public Student(int id, int zipcode, double salary)
+        public Employee(int id, int zipcode, double salary)
         {
             this.id = id;
             this.zipcode = zipcode;
             this.salary = salary;
         }
         // all the members of the struct has to be initialized either in this way  
-        public Student(int id, int zipcode)
+        public Employee(int id, int zipcode)
         {
             this.id = id;
             this.zipcode = zipcode;
@@ -27,12 +27,13 @@ namespace StructureSample
         }
 
         // struct can also have copy constructor but have to be fully initialzed  
-        public Student(Student x)
+        public Employee(Employee x)
         {
             this.id = x.id;
             this.zipcode = x.zipcode;
             this.salary = x.salary;
         }
+
         public void DisplayValues()
         {
             Console.WriteLine("ID: " + this.id.ToString());
