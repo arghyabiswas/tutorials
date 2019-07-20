@@ -102,6 +102,7 @@ namespace ConsoleApp2InterfaceWithSameMethodName
 
     class Test
     {
+        readonly
         public int Id { get; set; }
 
         public bool IsValid { get; set; }

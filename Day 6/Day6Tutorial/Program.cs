@@ -1,14 +1,11 @@
-﻿using DelegateSample;
-using InterfaceSample;
-using SampleEvent;
+﻿using BusinessLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DelegateSample.MathFunction;
 
-namespace Sample
+namespace Day5Tutorial
 {
     class Program
     {
@@ -16,7 +13,7 @@ namespace Sample
         public delegate double ExecuteMathOperation(double x, double y);
         public delegate void LogHandler(string message);
 
-        /* */
+        
         static void Main(string[] args)
         {
             IMathFunction mathFunction = new MathFunction();
@@ -79,7 +76,7 @@ namespace Sample
 
 
         }
-       
+
 
         //Calling Static function
         /*
@@ -128,7 +125,7 @@ namespace Sample
         */
 
         //simple event
-       
+        /*
         static void LogToConsole(string message)
         {
             Console.WriteLine(message);
@@ -152,30 +149,30 @@ namespace Sample
             employee.Login();
             Console.ReadKey();
         }
-        /* */
+        */
 
         //time event
 
         /*
-    public static void Main()
-    {
-        // Create a new clock
-        Clock theClock = new Clock();
+        public static void Main()
+        {
+            // Create a new clock
+            Clock theClock = new Clock();
 
-        // Create the display and tell it to
-        // subscribe to the clock just created
-        DisplayClock dc = new DisplayClock();
-        dc.Subscribe(theClock);
+            // Create the display and tell it to
+            // subscribe to the clock just created
+            DisplayClock dc = new DisplayClock();
+            dc.Subscribe(theClock);
 
-        // Create a Log object and tell it
-        // to subscribe to the clock
-        LogClock lc = new LogClock();
-        lc.Subscribe(theClock);
+            // Create a Log object and tell it
+            // to subscribe to the clock
+            LogClock lc = new LogClock();
+            lc.Subscribe(theClock);
 
-        // Get the clock started
-        theClock.Run();
-    }
+            // Get the clock started
+            theClock.Run();
+        }
 
-    */
+        */
     }
 }

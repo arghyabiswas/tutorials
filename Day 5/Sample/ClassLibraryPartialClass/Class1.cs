@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryPartialClass
 {
-    public class Class1
+    public partial class Class1
     {
         public int Id { get; set; }
     }

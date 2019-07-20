@@ -1,13 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SampleEvent
+namespace BusinessLogic
 {
-
     /* ======================= Event Publisher =============================== */
 
     // Our subject -- it is this class that other classes
@@ -77,7 +77,8 @@ namespace SampleEvent
 
             }
         }
-    }C:\Tutorial\trunk\Day 5\Sample\SampleEvent\Clock.cs
+    }
+   
 
     // The class to hold the information about the event
     // in this case it will hold only information
