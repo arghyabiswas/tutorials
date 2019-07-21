@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using OrganizationModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Day5Tutorial
         public delegate double ExecuteMathOperation(double x, double y);
         public delegate void LogHandler(string message);
 
-        
+        /*
         static void Main(string[] args)
         {
             IMathFunction mathFunction = new MathFunction();
@@ -76,7 +77,7 @@ namespace Day5Tutorial
 
 
         }
-
+        */
 
         //Calling Static function
         /*
@@ -94,7 +95,7 @@ namespace Day5Tutorial
 
         */
 
-        //Multicust delegate
+        //Multi cast delegate
 
         /*
         static void LogToConsole(string message)
@@ -173,6 +174,62 @@ namespace Day5Tutorial
             theClock.Run();
         }
 
+        */
+
+        /*
+        public static void Main(string[] args)
+        {
+            IEmployee[] employees = new IEmployee[4];
+
+            employees[0] = new OrganizationModels.Hr(1)
+            {
+                Name = "Hr 1",
+                Email = "hr1@esspl.com",
+                Department = DepartmentType.HumanResource,
+                Salary = 60000
+            };
+
+            employees[1] = new OrganizationModels.Manager(2)
+            {
+                Name = "Manager 1",
+                Email = "namager1@esspl.com",
+                Department = DepartmentType.HumanResource,
+                Salary = 80000,
+                HrManager = (IHr)employees[0]
+            };
+
+            employees[2] = new OrganizationModels.Employee(3)
+            {
+                Name = "Employee 1",
+                Email = "employee1@esspl.com",
+                Department = DepartmentType.HumanResource,
+                Salary = 40000,
+                HrManager = (IHr)employees[0],
+                ReportingManager = (IManager)employees[1]
+            };
+
+            employees[3] = new OrganizationModels.Employee(4)
+            {
+                Name = "Employee 2",
+                Email = "employee2@esspl.com",
+                Department = DepartmentType.HumanResource,
+                Salary = 50000,
+                HrManager = (IHr)employees[0],
+                ReportingManager = (IManager)employees[1]
+            };
+
+
+            // Assigning Subordinates to Manager
+            ((IManager)employees[1]).Subordinates = new IEmployee[2];
+            ((IManager)employees[1]).Subordinates[0] = employees[2];
+            ((IManager)employees[1]).Subordinates[1] = employees[3];
+
+            // Assigning Employee to Hr
+            ((IHr)employees[0]).Employees = new IEmployee[3];
+            ((IHr)employees[0]).Employees[0] = employees[1];
+            ((IHr)employees[0]).Employees[1] = employees[2];
+            ((IHr)employees[0]).Employees[2] = employees[3];
+        }
         */
     }
 }
