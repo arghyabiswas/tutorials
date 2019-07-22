@@ -136,10 +136,16 @@ namespace BusinessLogic
         // this object keeps no state
         public void WriteLogEntry(object theClock, TimeInfoEventArgs ti)
         {
-            Console.WriteLine("Logging to file: {0}:{1}:{2}",
+            string message = string.Format("Logging to file: {0}:{1}:{2}",
                ti.hour.ToString(),
                ti.minute.ToString(),
                ti.second.ToString());
+
+            using (System.IO.StreamWriter file =
+                new System.IO.StreamWriter(string.Format(@"{0}\log.txt", Environment.CurrentDirectory), true))
+            {
+                file.WriteLine(message);
+            }
         }
     }
 }

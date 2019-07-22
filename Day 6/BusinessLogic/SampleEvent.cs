@@ -9,7 +9,7 @@ namespace BusinessLogic
 {
     public class Employee
     {
-        // Define a delegate named LogHandler, which will encapsulate
+        // Define a delegate named LogHandler
         public delegate void LogHandler(string message);
 
         // Define an Event based on the above Delegate
@@ -21,7 +21,7 @@ namespace BusinessLogic
         {
             if (Log != null)
             {
-                Log(string.Format("{0}:Process() begin", DateTime.Now));
+                Log("Process() begin");
             }
 
 
@@ -30,7 +30,7 @@ namespace BusinessLogic
 
             if (Log != null)
             {
-                Log(string.Format("{0}:Process() end", DateTime.Now));
+                Log("Process() end");
             }
         }
 

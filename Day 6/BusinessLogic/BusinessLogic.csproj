@@ -52,6 +52,7 @@
     <Compile Include="Collections\Non Generics\SampleQueue.cs" />
     <Compile Include="Collections\Non Generics\SampleSortedList.cs" />
     <Compile Include="Collections\Non Generics\SampleStack.cs" />
+    <Compile Include="DelegateSample.cs" />
     <Compile Include="Model\IMathFunction.cs" />
     <Compile Include="MathFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

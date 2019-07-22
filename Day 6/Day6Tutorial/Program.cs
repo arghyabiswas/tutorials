@@ -12,25 +12,39 @@ namespace Day5Tutorial
     {
         //Simple delegate
         public delegate double ExecuteMathOperation(double x, double y);
-        public delegate void LogHandler(string message);
+
+        public delegate void VoidDelegate();
+
+        /*
+        static void Main(string[] args)
+        {
+            string email = "employee@esspl.com";
+
+            Console.WriteLine(email);
+
+            bool IsValid = Validate(1, ref email);
+
+            Console.WriteLine(email);
+            Console.ReadKey();
+        }
+
+
+        private static bool Validate(int employeeId, ref string email)
+        {
+            email = "test@esspl.com";
+            return true;
+        }
+        */
 
         /*
         static void Main(string[] args)
         {
             IMathFunction mathFunction = new MathFunction();
-
             ExecuteMathOperation executeMathOperation;
-
-
             Console.WriteLine("We are going to perform mathematical operation:");
-
-
-
 
             while (true)
             {
-
-
                 Console.WriteLine("Allowed keys are:");
                 Console.WriteLine("+");
                 Console.WriteLine("-");
@@ -40,22 +54,26 @@ namespace Day5Tutorial
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey();
 
+                int mode = 1;
+
                 switch (keyInfo.KeyChar)
                 {
                     case '+':
                         executeMathOperation = new ExecuteMathOperation(mathFunction.Add);
+                        mode = 1;
                         break;
 
                     case '-':
-                        executeMathOperation = new ExecuteMathOperation(mathFunction.Substract);
+                        // executeMathOperation = new ExecuteMathOperation(mathFunction.Substract);
+                        mode = 2;
                         break;
 
                     case '*':
-                        executeMathOperation = new ExecuteMathOperation(mathFunction.Multiply);
+                       // executeMathOperation = new ExecuteMathOperation(mathFunction.Multiply);
                         break;
 
                     case '/':
-                        executeMathOperation = new ExecuteMathOperation(mathFunction.Devide);
+                        //executeMathOperation = new ExecuteMathOperation(mathFunction.Divide);
                         break;
 
 
@@ -72,6 +90,13 @@ namespace Day5Tutorial
                 string secondNUmber = Console.ReadLine();
                 double numericSecondNumber = Convert.ToDouble(secondNUmber);
 
+                switch (mode)
+                {
+                    case 1:
+                        mathFunction.Add(numericFirstNumber, numericSecondNumber);
+                            break;
+                }
+
                 Console.WriteLine("Result: {0}", executeMathOperation(numericFirstNumber, numericSecondNumber));
             }
 
@@ -81,14 +106,16 @@ namespace Day5Tutorial
 
         //Calling Static function
         /*
+        public delegate void LogHandler(string message);
         static void LogToConsole(string message)
         {
-            Console.WriteLine(message);
+            Console.WriteLine("{0} - {1}",DateTime.Now, message);
         }
         static void Main(string[] args)
         {
 
             LogHandler logHandler = new LogHandler(LogToConsole);
+
             logHandler("Sample Log");
             Console.ReadKey();
         }
@@ -96,16 +123,16 @@ namespace Day5Tutorial
         */
 
         //Multi cast delegate
-
         /*
+        public delegate void LogHandler(string message);
         static void LogToConsole(string message)
         {
-            Console.WriteLine(message);
+             Console.WriteLine("{0} - {1}",DateTime.Now, message);
         }
 
         static void LogToFile(string message)
         {
-            message = string.Format("{0}:{1}", DateTime.Now, message);
+            message = string.Format("{0} - {1}", DateTime.Now, message);
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(string.Format(@"{0}\log.txt", Environment.CurrentDirectory),true))
             {
@@ -118,6 +145,7 @@ namespace Day5Tutorial
             LogHandler logHandler = null;
             logHandler += LogToConsole;
             logHandler += LogToFile;
+            //logHandler -= LogToFile;
 
             logHandler("Sample Log");
             Console.ReadKey();
@@ -129,12 +157,12 @@ namespace Day5Tutorial
         /*
         static void LogToConsole(string message)
         {
-            Console.WriteLine(message);
+             Console.WriteLine("{0} - {1}",DateTime.Now, message);
         }
 
         static void LogToFile(string message)
         {
-            message = string.Format("{0}:{1}", DateTime.Now, message);
+            message = string.Format("{0} - {1}", DateTime.Now, message);
             using (System.IO.StreamWriter file =
                 new System.IO.StreamWriter(string.Format(@"{0}\log.txt", Environment.CurrentDirectory), true))
             {
@@ -143,39 +171,39 @@ namespace Day5Tutorial
         }
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
+            BusinessLogic.Employee employee = new BusinessLogic.Employee();
             // Subscribe the Functions Logger and fl.Logger
-            employee.Log += new Employee.LogHandler(LogToConsole);
-            employee.Log += new Employee.LogHandler(LogToFile);
+            employee.Log += new BusinessLogic.Employee.LogHandler(LogToConsole);
+            employee.Log += new BusinessLogic.Employee.LogHandler(LogToFile);
             employee.Login();
             Console.ReadKey();
         }
         */
 
         //time event
-
         /*
-        public static void Main()
-        {
-            // Create a new clock
-            Clock theClock = new Clock();
+          public static void Main()
+          {
+              // Create a new clock
+              Clock theClock = new Clock();
 
-            // Create the display and tell it to
-            // subscribe to the clock just created
-            DisplayClock dc = new DisplayClock();
-            dc.Subscribe(theClock);
+              // Create the display and tell it to
+              // subscribe to the clock just created
+              DisplayClock dc = new DisplayClock();
+              dc.Subscribe(theClock);
 
-            // Create a Log object and tell it
-            // to subscribe to the clock
-            LogClock lc = new LogClock();
-            lc.Subscribe(theClock);
+              // Create a Log object and tell it
+              // to subscribe to the clock
+              LogClock lc = new LogClock();
+              lc.Subscribe(theClock);
 
-            // Get the clock started
-            theClock.Run();
-        }
 
-        */
+              // Get the clock started
+              theClock.Run();
+          }
+          */
 
+        //Data Modeliing
         /*
         public static void Main(string[] args)
         {
@@ -231,5 +259,25 @@ namespace Day5Tutorial
             ((IHr)employees[0]).Employees[2] = employees[3];
         }
         */
+
+        public static void Main()
+        {
+            MathFunction math = new MathFunction();
+
+            math.Add(1.5, 2.6);
+            math.Ave(2, 3);
+        }
+
+
+       
     }
+    public static class ExtensionMethods
+    {
+        public static double Ave(this MathFunction math, double x, double y)
+        {
+
+            return (x + y) / 2;
+        }
+    }
+
 }
