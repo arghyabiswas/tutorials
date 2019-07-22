@@ -13,7 +13,7 @@ namespace BusinessLogic
             return x + y;
         }
 
-        public double Devide(double x, double y)
+        public double Divide(double x, double y)
         {
             if (y == 0)
             {

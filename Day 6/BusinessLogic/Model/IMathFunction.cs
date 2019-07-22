@@ -15,7 +15,7 @@ namespace BusinessLogic
 
         double Multiply(double x, double y);
 
-        double Devide(double x, double y);
+        double Divide(double x, double y);
 
     }
 }
