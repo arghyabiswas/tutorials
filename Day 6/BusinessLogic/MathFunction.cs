@@ -17,7 +17,7 @@ namespace BusinessLogic
         {
             if (y == 0)
             {
-                return 0;
+                throw new ArgumentException("Value can not be zero", y);
             }
 
             return x / y;
