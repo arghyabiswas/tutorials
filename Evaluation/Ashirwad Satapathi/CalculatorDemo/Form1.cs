@@ -31,6 +31,11 @@ namespace CalculatorDemo
         }
 
         // This method stores the operator clicked and sets a flag that a operator was clicked 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void operator_click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
