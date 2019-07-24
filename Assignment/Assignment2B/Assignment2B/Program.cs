@@ -13,11 +13,12 @@ namespace Assignment2B
     {
         static void Main(string[] args)
         {
+            // creating list named employee that takes entries of type IEmployee
             List<IEmployee> employee = new List<IEmployee>();
 
-            // IEmployee employee = new Employee(1);
+            
 
-
+            //entering value of employee 1 who is a manager as well 
             IEmployee employee1 = new Manager(1)
             {
 
@@ -25,7 +26,7 @@ namespace Assignment2B
                 Email = "manager1@esspl.com"
             };
 
-
+            //entering details for employee 2
             IEmployee employee2 = new Manager(2);
             employee2.Name = "Test Manager2";
             employee2.Email = "manager2@esspl.com";
@@ -118,9 +119,15 @@ namespace Assignment2B
             employee.Add(employee12);
 
 
+            // creating a variable called subordinates , using LINQ calling the name of employee in list created with manager as employee1
+
             var subordinates = from name in employee
                                where name.ReportingManager != null && name.ReportingManager.EmployeeId == 1
                                select name ;
+
+
+            // print statement for the employees called under the above query using a foreach loop with item as temp variable
+
 
             Console.WriteLine("Employees under manager1");
             foreach(var item in subordinates)
@@ -129,13 +136,19 @@ namespace Assignment2B
             }
             Console.WriteLine("Employees under manager2");
 
+            // variable subordinate2 created to find employee with manager as manager2 using expression statements 
             var subordinate2 = employee
                                     .Where(t => t.ReportingManager != null && t.ReportingManager.EmployeeId == 2);
+
+            //foreach loop to print required names 
 
             foreach (var item in subordinate2)
             {
                 Console.WriteLine(item.Name);
             }
+
+
+            // using count length to count the number of employees in the created list of employees with datatype IEmployee
 
             Console.WriteLine("The number of employees in the organisation is " + employee.Count);
 
