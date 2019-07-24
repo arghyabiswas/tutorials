@@ -44,8 +44,6 @@ namespace Assignment2
             Console.WriteLine($"Manager Name: {employees[0].Name} \nManager Email :{employees[0].Email}\nNo of Sub-Ordinate {((IManager)employees[0]).subordinates.Count()}");
                         
             
-            Console.WriteLine($"The total number of employess are {count}");
-            */
             Console.ReadLine();
         }
     }
