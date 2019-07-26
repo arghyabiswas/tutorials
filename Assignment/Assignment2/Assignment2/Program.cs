@@ -59,7 +59,6 @@ namespace Assignment2
             {
                 Console.WriteLine("Name of the Manager is " +item.Name+ ".");
             }
-            //Console.WriteLine(employee1);
 
             manager.subordinate = new IEmployee[2];
 
