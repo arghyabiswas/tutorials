@@ -60,6 +60,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="TextBox4" runat="server" placeholder="Enter Password" TextMode="Password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage=" Password Required" ControlToValidate="TextBox4" ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <%--Confirm Password which has to match the previously entered password--%>
