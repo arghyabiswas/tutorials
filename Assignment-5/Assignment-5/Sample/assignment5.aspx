@@ -62,7 +62,7 @@
                 </asp:TableRow>
             </asp:Table>
             <br />
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" Font-Names="Comic Sans MS" ForeColor="Red"/>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" Font-Names="Comic Sans MS" ForeColor="Red" Visible="True"/>
             <br />
             <asp:Button runat="server" HorizontalAlign="Right" Text="Submit" ID="btn1" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" Height="35px" Width="80px" />
         </div>
