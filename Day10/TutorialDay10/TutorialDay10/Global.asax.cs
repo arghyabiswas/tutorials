@@ -17,5 +17,7 @@ namespace TutorialDay10
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        
     }
 }
