@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Assignment-6.master.cs" Inherits="Assignment_5.Assignment_6" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Assignment-6</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+    <span style="font-weight: 700; text-align: center; color: #3333FF; font-size: x-large">Welcome to Assignment 6-Monalisa</span>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <span style="text-align: center; font-weight: 700; color: #0000FF; font-size: medium;">Monalisa@Assignment-6</span>
+</body>
+</html>
