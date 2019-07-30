@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Assignment6.master.cs" Inherits="Assignment_5.Assignment6" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <h1 style="border: thin solid #000000; text-align: center; font-family: 'Comic Sans MS'; font-size: xx-large; font-weight: normal; font-style: normal; color: #FF0000; text-decoration: underline; background-color: #FFFF00; background-repeat: repeat;">Welcome to Assignment 6 - ABHISHEK PARIDA</h1>
+            </header>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div>
+            <footer>
+                <h1 style="font-family: 'Comic Sans MS'; font-size: xx-large; font-weight: normal; font-variant: normal; font-style: normal; color: #FF0000; text-decoration: underline; background-color: #FFFF00; border: thin solid #000000; text-align: center;">
+                    ABHISHEK @ Assignment6
+                </h1>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

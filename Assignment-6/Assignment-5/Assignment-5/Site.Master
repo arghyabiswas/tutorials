@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Assignment_5.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+
+</head>
+<body>
+    <form runat="server">
+
+    </form>
+</body>
+</html>
