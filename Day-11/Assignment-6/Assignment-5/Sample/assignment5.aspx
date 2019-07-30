@@ -1,24 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="assignment5.aspx.cs" Inherits="Assignment_5.Sample.assignment5" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="assignment5.aspx.cs" Inherits="Assignment_5.Sample.assignment5" MasterPageFile="~/Assignment6.Master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="../Content/bootstrap.css" rel="stylesheet" />
-    <link href="../Content/MyStyle.css" rel="stylesheet" />
-    <script src="../scripts/jquery-1.10.2.js"></script>
-    <script src="../scripts/jquery.unobtrusive-ajax.js"></script>
-    <title>Assignment-5 | Page Validator</title>
-</head>
-<body>
-    <form id="form1" runat="server" class="form-group">
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderAssignment" ID="Assignment5ChildPage" runat="server">
+    <form id="form1" runat="server" class="form-group" method="get">
         <div class="container" style="margin-top: 20px;">
 
             <asp:Table ID="TableRegistration" runat="server" CssClass="table-hover table-responsive" Width="100%" Height="450px">
 
                 <%--Registration Section--%>
                 <asp:TableHeaderRow>
-                    <asp:TableHeaderCell Font-Underline="true" CssClass="text-center h2 text-success" ColumnSpan="2" Font-Bold="true">Registration Form</asp:TableHeaderCell>
+                    <asp:TableHeaderCell Font-Underline="true" CssClass="text-center h2 text-secondary" ColumnSpan="2" Font-Bold="true">Registration Form</asp:TableHeaderCell>
                 </asp:TableHeaderRow>
 
                 <asp:TableRow>
@@ -67,7 +58,7 @@
                         </asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="DropDownListDepartment" runat="server" CssClass="form-control">
                             <asp:ListItem Value="0">--Select Your Department--</asp:ListItem>
                             <asp:ListItem Value="1">Computer Science</asp:ListItem>
                             <asp:ListItem Value="2">Chemical</asp:ListItem>
@@ -170,14 +161,8 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-
-
-
-
-
         </div>
-
-
     </form>
-</body>
-</html>
+</asp:Content>
+
+

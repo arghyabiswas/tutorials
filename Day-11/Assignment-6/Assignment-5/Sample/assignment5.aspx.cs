@@ -16,7 +16,24 @@ namespace Assignment_5.Sample
 
         protected void ButtonSubmit_Click(object sender, EventArgs e)
         {
-
+            string email = TextBoxEmail.Text;
+            string firstname = TextBoxFirstname.Text;
+            string lastname = TextBoxLastname.Text;
+            string password = TextBoxPassword.Text;
+            string department = DropDownListDepartment.SelectedItem.Text;
+            string confirmPassword = TextBoxConfirmPassword.Text;
+            if (email != string.Empty && firstname != string.Empty && password != string.Empty && confirmPassword != string.Empty)
+            {
+                if (password == confirmPassword)
+                {
+                    Session["Email"] = email;
+                    Session["Firstname"] = firstname;
+                    Session["Lastname"] = lastname;
+                    Session["Department"] = department;
+                    Response.Redirect("Assignment6Data.aspx");
+                }
+            }
+            Response.Redirect("Assignment5.aspx");
         }
     }
 }

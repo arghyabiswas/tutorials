@@ -94,11 +94,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\New Text Document.txt" />
+    <Content Include="Models\New Text Document.txt" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sample\Assignment6Data.aspx" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Assignment6.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,6 +134,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment6.Master.cs">
+      <DependentUpon>Assignment6.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assignment6.Master.designer.cs">
+      <DependentUpon>Assignment6.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,11 +152,15 @@
     <Compile Include="Sample\assignment5.aspx.designer.cs">
       <DependentUpon>assignment5.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sample\Assignment6Data.aspx.cs">
+      <DependentUpon>Assignment6Data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sample\Assignment6Data.aspx.designer.cs">
+      <DependentUpon>Assignment6Data.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

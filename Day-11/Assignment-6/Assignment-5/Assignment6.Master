@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Assignment6.master.cs" Inherits="Assignment_5.Assignment6" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/MyStyle.css" rel="stylesheet" />
+    <script src="scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/jquery-1.8.0.js"></script>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header class="flex-container">
+        <h2 class="text-success text-center">Welcome to Assignment 6 - <span class="text-info">NIKOLASH</span></h2>
+    </header>
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderAssignment" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <footer class="flex-container">
+        <h4 class="text-success text-center"><span class="text-info">NIKOLASH</span> @Assignment6</h4>
+    </footer>
+</body>
+</html>
