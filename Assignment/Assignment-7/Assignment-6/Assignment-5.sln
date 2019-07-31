@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment-5", "Assignment-5\Assignment-5.csproj", "{51ED8E1C-79D0-4B91-B85C-790493626624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeModel", "..\..\..\..\..\..\..\..\Users\deepakj\Documents\Visual Studio 2015\Projects\Copy_Assignment2\Assignment2\EmployeeModel\EmployeeModel.csproj", "{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51ED8E1C-79D0-4B91-B85C-790493626624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51ED8E1C-79D0-4B91-B85C-790493626624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51ED8E1C-79D0-4B91-B85C-790493626624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51ED8E1C-79D0-4B91-B85C-790493626624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
