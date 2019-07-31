@@ -143,6 +143,6 @@ namespace EmployeeModel.BusinessLogic.Classes
             Employees.Add(_employee14);
         }
 
-        public static List<IEmployee> Employees { get; set; }
+        public static List<IEmployee> Employees { get;private set; }
     }
 }
