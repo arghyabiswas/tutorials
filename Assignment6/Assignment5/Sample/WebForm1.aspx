@@ -4,7 +4,7 @@
 
     <form id="form1" runat="server">
         <div>
-            <asp:Table runat="server" HorizontalAlignment="Center" Height="312px" Width="719px" style="margin-left: 81px">
+            <asp:Table runat="server" Height="312px" Width="719px" style="margin-left: 81px">
                 <asp:TableHeaderRow>
 
                     <asp:TableHeaderCell Font-Bold="true" Font-Size="X-Large">Registration_Form</asp:TableHeaderCell>
@@ -16,7 +16,7 @@
                         <asp:Label ID="LabelFirstName" runat="server" Text="FirstName"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:TextBox ID="TextBoxFirstName" runat="server" placeholder="Enter FirstName"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxFirstName" runat="server" ></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
                         <%--field can't be empty--%>

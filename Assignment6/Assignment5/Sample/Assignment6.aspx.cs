@@ -11,8 +11,7 @@ namespace Assignment5.Sample
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelDepartment.Text = Convert.ToString(Session["department"]);
-            LabelFirstname.Text = Convert.ToString(Session["firstname"]);
+            LabelFirstname.Text = Session["firstname"].ToString();//it will through null exception if null value wil be there in session var 
             LabelLastname.Text = Convert.ToString(Session["lastname"]);
             LabelEmail.Text = Convert.ToString(Session["email"]);
 
@@ -21,7 +20,7 @@ namespace Assignment5.Sample
         protected void ButtonGoBack_Click(object sender, EventArgs e)
         {
 
-            Server.Transfer("WebForm1.aspx");
+            Response.Redirect("WebForm1.aspx");
         }
     }
 }
