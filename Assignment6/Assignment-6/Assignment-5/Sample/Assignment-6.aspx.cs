@@ -11,7 +11,7 @@ namespace Assignment_5.Sample
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelDepartment.Text = Convert.ToString(Session["department"]);
+            LabelDepartment.Text = Session["department"].ToString();
             LabelFirstname.Text = Convert.ToString(Session["firstname"]);
             LabelLastname.Text = Convert.ToString(Session["lastname"]);
             LabelEmail.Text = Convert.ToString(Session["email"]);
@@ -21,7 +21,7 @@ namespace Assignment_5.Sample
         protected void ButtonGoBack_Click(object sender, EventArgs e)
         {
 
-            Server.Transfer("WebForm1.aspx");
+            Response.Redirect("WebForm1.aspx");
         }
     }
 }
