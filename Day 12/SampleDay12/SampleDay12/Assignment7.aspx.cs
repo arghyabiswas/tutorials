@@ -12,6 +12,9 @@ namespace SampleDay12
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+           
+
             ddlEmployee.DataSource = DataContext.Employees;
             ddlEmployee.DataTextField = "Name";
             ddlEmployee.DataValueField = "Employeeid";
@@ -22,6 +25,19 @@ namespace SampleDay12
 
         protected void ddlEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int employeeId = Convert.ToInt32(ddlEmployee.SelectedValue);
+
+            IEmployee employees = DataContext.Employees
+                                  .FirstOrDefault(p => p.Employeeid == employeeId);
+
+            if(employees.ReportingManager == null)// Manager
+            {
+
+            }
+            else// Not Manager
+            {
+
+            }
 
         }
     }
