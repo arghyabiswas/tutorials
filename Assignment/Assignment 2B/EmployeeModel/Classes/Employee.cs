@@ -11,6 +11,10 @@ namespace EmployeeModel
     /// </summary>
     public class Employee : IEmployee
     {
+        public Employee()
+        {
+        }
+
         /// <summary>
         /// Creating a constructor of Employee Class and accepting parameter employeeid of int data types
         /// </summary>
