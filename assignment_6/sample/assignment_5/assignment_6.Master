@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="assignment_6.master.cs" Inherits="assignment_5.assignment_6" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <span style="color:#800080; font-family:Fixedsys; font-size: large; font-variant: inherit; font-style: inherit;"><h1 style="text-align:center;">WELCOME TO ASSIGNMENT_6 - UTKAL</h1></span>
+           
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+         <span style="color:#000000; font-family:fixedsys"><h1 style="text-align:center;">utkal@assignment</h1></span>
+
+    </div>
+    </form>
+</body>
+</html>
