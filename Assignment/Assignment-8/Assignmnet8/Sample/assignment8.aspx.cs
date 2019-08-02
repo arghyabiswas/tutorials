@@ -14,7 +14,7 @@ namespace Assignmnet8.Sample
         {
             if (!IsPostBack)
             {
-                var employee = DataContextEmp.Employees1.Where(m => m.ReportingManager == null).ToList();
+                var employee = DataContext.Employees.Where(m => m.ReportingManager == null).ToList();
                 dropdownmgr.DataSource = employee;
                 dropdownmgr.DataTextField = "name";
                 dropdownmgr.DataValueField = "employeeId";
@@ -27,7 +27,7 @@ namespace Assignmnet8.Sample
         {
             var selectedItem = Convert.ToInt32(dropdownmgr.SelectedItem.Value);
 
-            var employee = DataContextEmp.Employees1
+            var employee = DataContext.Employees
                             .Where(m => m.ReportingManager != null && m.ReportingManager.employeeId == selectedItem)
                             .ToList();
             Session["SelectedEmployee"] = employee;

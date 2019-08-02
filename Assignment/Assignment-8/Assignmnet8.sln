@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignmnet8", "Assignmnet8\Assignmnet8.csproj", "{A94713CF-51A0-4A58-942E-CEB3C4D54F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeModel", "..\..\..\..\..\..\Tutorial\Main Branch\tutorials\branches\deepakj@esspl.com\Assignment\Copy_Assignment2\Assignment2\EmployeeModel\EmployeeModel.csproj", "{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeModel", "EmployeeModel\EmployeeModel.csproj", "{8DD4AC2B-0F48-41AF-BB32-DB9CC3033347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

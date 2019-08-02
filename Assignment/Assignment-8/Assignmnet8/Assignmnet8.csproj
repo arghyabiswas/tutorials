@@ -435,9 +435,8 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Tutorial\Main Branch\tutorials\branches\deepakj%40esspl.com\Assignment\Copy_Assignment2\Assignment2\EmployeeModel\EmployeeModel.csproj">
+    <ProjectReference Include="..\EmployeeModel\EmployeeModel.csproj">
       <Project>{8dd4ac2b-0f48-41af-bb32-db9cc3033347}</Project>
       <Name>EmployeeModel</Name>
     </ProjectReference>
