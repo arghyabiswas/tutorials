@@ -215,6 +215,7 @@
     <Content Include="Sample\assignment5.aspx" />
     <Content Include="Sample\assignment6.aspx" />
     <Content Include="Sample\Assignment7.aspx" />
+    <Content Include="Sample\EmployeeDetails.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="Sample\Assignment7.aspx.designer.cs">
       <DependentUpon>Assignment7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sample\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sample\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace WebApplication1
 {
+    [Serializable]
     public class Employee : IEmployee
     {
 
         public Employee(int id)
         {
-                     
+            this.EmployeeId = id;        
         }
 
         public string Email { get; set; }

@@ -32,10 +32,12 @@ namespace WebApplication1.Sample
             if (employee.EmployeeId == 13 || employee.EmployeeId == 14)
             {
                 ViewState["SelectedEmployee"] = employee;
+                Server.Transfer("EmployeeDetails.aspx");
             }
             else
             {
                 Session["SelectedEmployee"] = employee;
+                Response.Redirect("EmployeeDetails.aspx");
             }
         }
     }

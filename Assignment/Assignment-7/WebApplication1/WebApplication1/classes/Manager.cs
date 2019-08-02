@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1
 {
+    [Serializable]
     public class Manager : Employee, IManager
     {
         public IEmployee[] subordinate { get; set; }
