@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DataContent.cs" />
+    <Compile Include="DataContext.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="IManager.cs" />
