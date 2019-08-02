@@ -7,6 +7,9 @@ using System.Configuration;
 
 namespace EmployeeModel
 {
+    /// <summary>
+    /// Interface of Employee having following Properties
+    /// </summary>
     public interface IEmployee
     {
         int employeeId { get; }
