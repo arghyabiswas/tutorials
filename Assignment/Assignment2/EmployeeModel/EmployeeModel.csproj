@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Employee.cs" />
+    <Compile Include="DataContext.cs" />
     <Compile Include="interfaces\IEmployee.cs" />
     <Compile Include="interfaces\IManager.cs" />
     <Compile Include="classes\Manager.cs" />
