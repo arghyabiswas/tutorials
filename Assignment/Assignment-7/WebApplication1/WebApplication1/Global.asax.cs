@@ -12,11 +12,6 @@ namespace WebApplication1
     public class Global : HttpApplication
 
     {
-        void session_start(object sender, EventArgs e)
-        {
-            Response.Write("hello ");
-        }
-
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
