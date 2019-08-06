@@ -17,5 +17,10 @@ namespace Assignment_5
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Response.Write("Mona");
+        }
     }
 }
