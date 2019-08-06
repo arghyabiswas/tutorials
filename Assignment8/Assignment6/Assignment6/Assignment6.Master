@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Assignment6.master.cs" Inherits="Assignment5.Assignment6" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head runat="server">
+    <title>ASSIGNMENT-5</title>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+    </style>
+</head>
+    
+<body>
+    
+
+    <div class="auto-style1" style="font-family: &quot;Arial Black&quot;;
+ font-size: x-large; font-weight: 400; font-style: inherit; text-transform:
+      capitalize; color: #FF0000; background-color: #FFCC00; border-style: groove">Welcome to Assignment 6 - [ASEEM]</div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+   <div style="text-align:center"><footer>Assem Ray@assignment-6</footer></div>
+</body>
+</html>
