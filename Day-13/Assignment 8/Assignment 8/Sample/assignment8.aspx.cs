@@ -34,11 +34,9 @@ namespace Assignment_8.Sample
             {
                 int selectedItem = Convert.ToInt32(DropDownListManager.SelectedItem.Value);
 
-                List<IEmployee> employee = DataContext.Employees
-                                  .Where(m => m.ReportingManager != null && m.ReportingManager.EmployeeId== selectedItem)
-                                  .ToList();
 
-                Session["SelectedEmployee"] = employee;
+
+                Session["SelectedEmployeeId"] = selectedItem;
                 Response.Redirect("EmployeeDetails.aspx");
 
             }

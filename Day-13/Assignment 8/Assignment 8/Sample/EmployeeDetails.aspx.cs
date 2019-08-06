@@ -2,6 +2,7 @@
 using EmployeeModel.BusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment_8.Sample
 {
@@ -9,9 +10,17 @@ namespace Assignment_8.Sample
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var employeeData = (List<IEmployee>)Session["SelectedEmployee"];
-            GridViewEmployeeData.DataSource= employeeData;
-            GridViewEmployeeData.DataBind();
+            if (Session["SelectedEmployeeId"] != null)
+            {
+                var selectedId = Convert.ToInt32(Session["SelectedEmployeeId"]);
+
+                List<IEmployee> employee = DataContext.Employees
+                            .Where(m => m.ReportingManager != null && m.ReportingManager.EmployeeId == selectedId)
+                            .ToList();
+                GridViewEmployeeData.DataSource = employee;
+                GridViewEmployeeData.DataBind();
+            }
+
         }
 
         protected void ButtonReturn_Click(object sender, EventArgs e)
