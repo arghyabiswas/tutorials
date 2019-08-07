@@ -35,6 +35,13 @@
             font-size:large;
         }
 
+        .ErrorLabel{
+            text-align:center;
+            color:red;
+            font-size:medium;
+            font-weight:500;
+        }
+
         .ButtonLogin{
             font-size:larger;
             background-color:cadetblue;

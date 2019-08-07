@@ -25,6 +25,8 @@
         <asp:TableFooterRow>
             <asp:TableCell ColumnSpan="2">
                   <asp:Button ID="ButtonLogin" CssClass="ButtonLogin" runat="server" OnClick="ButtonLogin_Click" Text="Login" />
+                <br />
+                <asp:Label ID="Error" runat="server" CssClass="ErrorLabel"></asp:Label>
             </asp:TableCell>
         </asp:TableFooterRow>
     </asp:Table>
