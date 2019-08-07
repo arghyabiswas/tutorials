@@ -6,27 +6,49 @@ using System.Threading.Tasks;
 
 namespace EmployeeModel
 {
-    public class Employee:IEmployee
+    /// <summary>
+    /// Employee class inherited by <see cref="IEmployee"/>
+    /// </summary>
+    public class Employee : IEmployee
     {
+        /// <summary>
+        /// Constructor with employee id 
+        /// </summary>
+        /// <param name="employeeid"></param>
         public Employee(int employeeid)
         {
-            this.Employeeid = employeeid;
-        }
-        public string Email
-        {
-            get; set;
+            this.EmployeeId = employeeid;
         }
 
-        public int Employeeid
+        /// <summary>
+        /// Employee Id is used to uniquely identify the employee.
+        /// It is the primary Key
+        /// Outside of the class this key is read-only, as "set" is private
+        /// </summary>
+        public int EmployeeId
         {
-            get;
+            get; private set;
         }
 
+        /// <summary>
+        /// Name of the employee
+        /// </summary>
         public string Name
         {
             get; set;
         }
 
+        /// <summary>
+        /// Email of the employee
+        /// </summary>
+        public string Email
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Reporting manager is another employee  
+        /// </summary>
         public IEmployee ReportingManager
         {
             get; set;

@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace EmployeeModel
 {
-    public class Manager:Employee,IManager
+    /// <summary>
+    /// Manager is inherited by <see cref="Employee"/>  as a manager is also an employee, 
+    /// </summary>
+    public class Manager : Employee, IManager
     {
-        public Manager(int employeeid):base(employeeid)
+        /// <summary>
+        /// Constructor with employee id parameter
+        /// </summary>
+        /// <param name="employeeid"></param>
+        public Manager(int employeeid) : base(employeeid)
         {
 
         }
-        
-        public IEmployee[] Subordinates
+
+        /// <summary>
+        /// People who work under the manager
+        /// </summary>
+        public List<IEmployee> Subordinates
         {
             get; set;
         }

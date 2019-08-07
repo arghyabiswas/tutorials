@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace EmployeeModel
 {
-    public interface IManager:IEmployee
+    /// <summary>
+    /// Structure of the manager
+    /// </summary>
+    public interface IManager : IEmployee
     {
-        IEmployee[] Subordinates { get; set; }
+        /// <summary>
+        /// Collection of employee under the manager
+        /// </summary>
+        List<IEmployee> Subordinates { get; set; }
     }
 }
