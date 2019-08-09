@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 12</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .footerColor{
+            background-color: #f1f1f1;
+            background-color: #f1f1f1;
+        }
+        body {
+        margin: 0;
+        }
+        .header {
+         padding-top:20px;
+         padding-right:30px;
+         padding-left:30px;
+         padding-bottom:0px;
+         text-align: left;
+           }
+        .row:after {
+         content: "";
+         display: table;
+         clear: both;
+            }
+
+        .column {
+            
+            margin-top:0px;
+         float: left;
+         width: 33.33%;
+         padding-left:120px;
+         padding-right:50px;
+         padding-top:0px;
+         box-sizing:border-box;
+             padding-bottom:20px;
+            }
+        @media screen and (max-width:600px) {
+            .column {
+                width: 100%;
+                }
+            .column1.side, .column1.middle {
+    width: 100%;
+  
+            }
+        }
+        .button {
+  background-color: cornflowerblue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {width: 100%;}
+        .subHeadText {
+            color:cornflowerblue;
+        }
+
+        .column1{
+  float: left;
+  padding: 10px;
+  box-sizing:border-box
+}
+
+        .button2 {
+        width:12%;
+        padding: 16px 20px;
+ 
+  border: none;
+  border-radius: 4px;
+   margin: 8px 0;
+  background-color: cornflowerblue;
+  box-sizing:border-box;
+  color:White;
+        }
+
+/* Left and right column */
+.column1.side {
+  padding-top:20PX;
+  margin-left:1.25%;
+  margin-right:0%;
+  width: 23%;
+  background-color: #f1f1f1;
+  margin-top:1%;
+}
+
+/* Middle column */
+.column1.middle {
+    background-color: #f1f1f1;
+  width: 40%;
+  margin-top:1%;
+  margin-left:5%;
+  margin-right:5%;
+}
+
+
+select {
+  width: 40%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+   margin: 8px 0;
+  background-color: cornflowerblue;
+  box-sizing:border-box;
+  color:White;
+}
+ 
+input[type=text] {
+  width: 45%;
+  padding: 16px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+}
+td, th {
+  
+  text-align: center;
+  padding: 5px;
+}
+        .subHeadTextGray {
+        color:darkslategray;
+        }
+    </style>
+</head>
+<body>
+    <div class="footerColor">
+    <div class="header">
+        <div class="subHeadText"><h1>Latest News</h1></div>
+        </div>
+        <div class="row">
+            <div class="column">
+               <div class="subHeadTextGray"><h2>Column</h2></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna.Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. </p>
+                <!--<button type="button"> Read More</button>-->
+                <button class="button button1"><strong>Read More ></strong></button>
+            </div>
+
+            <div class="column">
+                <div class="subHeadTextGray"><h2>Column</h2></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna.Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. </p>
+                <!--<button type="button"> Read More</button>-->
+                <button class="button button1"><strong>Read More ></strong></button>
+            </div>
+
+            <div class="column">
+                <div class="subHeadTextGray"><h2>Column</h2></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna.Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. </p>
+                <!--<button class="button"> Read More</button>-->
+                <button class="button button1"><strong>Read More ></strong></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column1 side">
+            <h2>&nbsp;&nbsp;Events</h2>
+            <table width="100%">
+                <tr >
+                    <td><div  style="background-color:cornflowerblue;color:white;padding:3px"><p><strong>May</strong></p></div></td>
+                    <td>&nbsp; <strong>Class for Course A</strong></td>
+                </tr>
+                <tr>
+                    <td><center>12</center></td>
+                    <td>    <br />London</td>
+                </tr>
+                <tr>
+                    <td><div style="background-color:cornflowerblue;color:white;padding:3px"><p><strong>June</strong></p></div></td>
+                    <td>&nbsp;<strong>Class for Course B</strong></td>
+                </tr>
+                <tr>
+                    <td><center>01</center></td>
+                    <td>12:00 AM - 02:30 PM<br />London</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="column1 middle">
+            <h2 style="color:cornflowerblue">Course Finder</h2>
+            <form>
+                <select id="country" name="country">
+                    <option value="au">Australia</option>
+                    <option value="ca">Canada</option>
+                    <option value="usa">USA</option>
+                </select>   <input type="text" id="fname" name="fname" value="Search Keywords" > <button class="button2"><i class="fa fa-search"></i></button>
+                <p style="color:cornflowerblue"><strong> All our courses <b>></b></strong></p>
+            </form>
+
+        </div>
+
+        <div class="column1 side" >
+            <h2 >&nbsp; Quick Links</h2>
+            <p style="color:cornflowerblue">&ensp; &#9658; E-Learning Portal</p>
+            <p style="color:cornflowerblue">&ensp; &#9658; E-Learning Portal</p>
+            <p style="color:cornflowerblue">&ensp; &#9658; E-Learning Portal</p>
+            <p style="color:cornflowerblue">&ensp; &#9658; E-Learning Portal</p>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+    
