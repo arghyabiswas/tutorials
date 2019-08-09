@@ -15,10 +15,15 @@ namespace TutorialDay17
 
         }
 
+        
         protected void ButtonSubmit_Click(object sender, EventArgs e)
         {
             Thread.Sleep(2000);
-            LabelResult.Text = "Success Message.";
+            if(TextBoxName.Text!= string.Empty && TextBoxEmail.Text!=string.Empty)
+            {
+                LabelResult.Text = "Success Message.";
+            }
+          
         }
     }
 }
