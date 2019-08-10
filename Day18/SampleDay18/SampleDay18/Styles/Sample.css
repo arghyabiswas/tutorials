@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.myDiv {
+    border-width: 1px;
+    border-color:#0000FF;
+    border-style: dotted;
+    width: 200px;
+    height: 100px;
+}
+
+.myDiv1 {
+    border-width: 1px;
+    border-color: #0000FF;
+    border-style: dotted;
+    width: 200px;
+    height: 100px;
+}
+
+#test {
+    border-color: Red;
+}
