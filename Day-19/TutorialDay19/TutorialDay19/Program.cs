@@ -27,8 +27,8 @@ namespace TutorialDay19
                 switch (input)
                 {
                     case 1:
-                        
-                        bool success= InsertRecord.Insert();
+                        Project project = ProjectLayer.SetProject();
+                        bool success= InsertRecord.Insert(project);
                         if (success)
                         {
                             Console.WriteLine("Result Inserted");

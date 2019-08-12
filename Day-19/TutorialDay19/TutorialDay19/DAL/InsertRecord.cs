@@ -10,18 +10,19 @@ namespace TutorialDay19.DAL
 {
     class InsertRecord
     {
-        public static bool Insert()
+        public static bool Insert(Project project)
         {
 
             SqlConnection sqlConnection = null;
             try
             {
+                int status = project.IsActive ? 1 : 0;
                 sqlConnection = NewConnection.SQLConnection();
                 sqlConnection.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
                 SqlCommand sqlCommand = new SqlCommand();
 
-                sqlCommand.CommandText = "insert into Projects(Name,Description,StartDate,EndDate,IsActive) values ('Nikolash Beura','ADO DOT NET','2019-08-12 00:00:00','2019-08-12 00:00:00',0)";
+                sqlCommand.CommandText = $"insert into Projects(Name,Description,StartDate,EndDate,IsActive) values ('{project.Name}','{project.Description}','{project.StartDate}','{project.EndDate}','{status}')";
 
                 sqlCommand.CommandType = CommandType.Text;
 
