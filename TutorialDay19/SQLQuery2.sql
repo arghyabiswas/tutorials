@@ -1,0 +1,1 @@
+insert into Project (Description, IsActive, StartDate, EndDate) values ('sample', 1, '08-12-2019','08-15-2019')
