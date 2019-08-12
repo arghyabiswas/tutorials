@@ -10,7 +10,7 @@ namespace TutorialDay19
 {
     class Program
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=ASEEMLTOP;DataBase=TutorialDay19;Integrated Security = SSPI");
+        SqlConnection conn = new SqlConnection(@"Data Source=ASEEMRLTOP;DataBase=TutorialDay19;Integrated Security = SSPI");
 
 
         static void Main(string[] args)
