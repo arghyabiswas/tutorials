@@ -18,6 +18,22 @@ namespace ConsoleApp1
 
             bool isValid = TestConnection();
             Console.WriteLine(isValid);
+
+            Project project = new Project();
+            // project.Id = 4;
+            project.Name = "C# OOP";
+            project.Description = "Test Description";
+            project.SartDate = DateTime.Now;
+            project.EndDate = DateTime.Now.AddDays(10);
+            project.IsActive = true;
+
+            isValid = AddUpdateProject(project);
+
+            Console.WriteLine(isValid);
+
+            //List<Project> projects = new List<Project>();
+            //projects.Where(a => a.IsActive == true).ToList();
+
             Console.ReadKey();
 
         }
@@ -45,49 +61,65 @@ namespace ConsoleApp1
             return isValid;
         }
 
-
-        public void AddUpdateProject(Project project)
+        public static bool AddUpdateProject(Project project)
         {
+            bool isValid = false;
             SqlConnection oCnn = new SqlConnection();
 
             oCnn.ConnectionString = databaseConnectionString;
-            oCnn.Open();
+            try
+            {
+                oCnn.Open();
 
 
-            SqlCommand command = new SqlCommand();
-            command.Connection = oCnn;
+                SqlCommand command = new SqlCommand();
+                command.Connection = oCnn;
 
-            command.CommandText = "AddUpdateProject";
-            command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "AddUpdateProject";
+                command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.Add("Id", SqlDbType.Int);
-            command.Parameters["Id"].Value = project.Id;
+                command.Parameters.Add("Id", SqlDbType.Int);
+                command.Parameters["Id"].Value = project.Id;
+                command.Parameters["iD"].Direction = ParameterDirection.InputOutput;
 
-            command.Parameters.Add("Name", SqlDbType.VarChar,255);
-            command.Parameters["Name"].Value = project.Name;
+                command.Parameters.Add("Name", SqlDbType.VarChar, 255);
+                command.Parameters["Name"].Value = project.Name;
 
-            command.Parameters.Add("Descrption", SqlDbType.NVarChar,1023);
-            command.Parameters["Descrption"].Value = project.Description;
+                command.Parameters.Add("Description", SqlDbType.NVarChar, 1023);
+                command.Parameters["Description"].Value = project.Description;
 
-            command.Parameters.Add("StartDate", SqlDbType.DateTime);
-            command.Parameters["StartDate"].Value = project.SartDate;
+                command.Parameters.Add("StartDate", SqlDbType.DateTime);
+                command.Parameters["StartDate"].Value = project.SartDate;
 
-            command.Parameters.Add("EndDate", SqlDbType.DateTime);
-            command.Parameters["EndDate"].Value = project.EndDate;
+                command.Parameters.Add("EndDate", SqlDbType.DateTime);
+                command.Parameters["EndDate"].Value = project.EndDate;
 
-            command.Parameters.Add("IsActive", SqlDbType.Bit);
-            command.Parameters["IsActive"].Value = project.IsActive;
+                command.Parameters.Add("IsActive", SqlDbType.Bit);
+                command.Parameters["IsActive"].Value = project.IsActive;
+
+                //command.ExecuteReader
+                //command.ExecuteScalar
+                command.ExecuteNonQuery();
+
+                int id = Convert.ToInt32( command.Parameters["iD"].Value);
+
+                isValid = true;
 
 
-            //command.ExecuteReader
-            //command.ExecuteScalar
-            command.ExecuteNonQuery();
-            oCnn.Close();
+            }
+            catch(Exception e)
+            {
+                isValid = false;
+            }
+            finally
+            {
+                if (oCnn.State != ConnectionState.Closed)
+                {
+                    oCnn.Close();
+                }
+            }
 
-            /*
-             * 
-             @Id int = null,	        @Name VARCHAR(255),	        @Descrption NVARCHAR(1023),	        @StartDate DATETIME, 	        @EndDate DATETIME,	        @IsActive BIT
-            */
+            return isValid;
         }
     }
 
