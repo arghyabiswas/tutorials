@@ -21,17 +21,17 @@ namespace TutorialDay19
             {
                 Console.WriteLine();
                 string id = dr["id"].ToString();
-                Console.Write(id + "\t");
+                Console.WriteLine(id + "\t");
                 string nm = dr["name"].ToString();
-                Console.Write(nm + "\t");
+                Console.WriteLine(nm + "\t");
                 string descr = dr["description"].ToString();
-                Console.Write(descr + "\t");
+                Console.WriteLine(descr + "\t");
                 string sd = dr["startdate"].ToString();
-                Console.Write(sd + "\t");
+                Console.WriteLine(sd + "\t");
                 string ed = dr["enddate"].ToString();
-                Console.Write(ed + "\t");
+                Console.WriteLine(ed + "\t");
                 string st = dr["isactive"].ToString();
-                Console.Write(st + "\t");
+                Console.WriteLine(st + "\t");
             }
             Console.ReadKey();
         }
