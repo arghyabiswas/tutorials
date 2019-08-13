@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace TutorialDay19
 {
     class Program
     {
         static SqlConnection connection;
-        static string dataConnection = "DATA SOURCE=CHIRANJEEVPC; INITIAL CATALOG=TutorialDay19; INTEGRATED SECURITY=TRUE;";
+
+        static string dataConnection = "";
 
         static void Main(string[] args)
         {
