@@ -11,6 +11,15 @@ namespace ADO.NETTutorial.DataAccess
 {
     public class ProjectDataHandler
     {
+        /*
+        TestConnection()
+        LoadAll()
+        LoadById(int id)
+        AddEdit
+        Delete
+        */
+
+
         SqlConnection connection;
         string dbConnectionString;
         public ProjectDataHandler()
@@ -45,6 +54,7 @@ namespace ADO.NETTutorial.DataAccess
 
             return isConnected;
         }
+
 
         /// <summary>
         /// Loading all record of the project table
@@ -83,143 +93,77 @@ namespace ADO.NETTutorial.DataAccess
 
             return dtProjects;
         }
-
-        /// <summary>
-        /// Add a record to the project table
-        /// </summary>
-        /// <param name="project"></param>
-        /// <returns></returns>
-        public bool AddProject(Project project)
+        public bool AddEditProject(Project project)
         {
-            bool isSuccess = false;
-            try
+            bool isValid = false;
+
+
+            using (SqlConnection oCnn = new SqlConnection())
             {
-                connection.Open();
-
-                SqlCommand oCmd = new SqlCommand();
-                oCmd.Connection = connection;
-                oCmd.CommandText = "INSERT INTO Projects (Name,StartDate,EndDate) values(@Name,@StartDate,@EndDate)";
-                oCmd.CommandType = CommandType.Text;
-
-                oCmd.Parameters.Add("Name", SqlDbType.VarChar, 255);
-                oCmd.Parameters["Name"].Value = project.Name;
-
-                oCmd.Parameters.Add("StartDate", SqlDbType.DateTime);
-                oCmd.Parameters["StartDate"].Value = project.StartDate;
-
-                oCmd.Parameters.Add("EndDate", SqlDbType.DateTime);
-                oCmd.Parameters["EndDate"].Value = project.EndDate;
-
-                oCmd.ExecuteNonQuery();
-                isSuccess = true;
-            }
-            catch (Exception e)
-            {
-                isSuccess = false;
-            }
-            finally
-            {
-                if (connection.State != System.Data.ConnectionState.Closed)
+                oCnn.ConnectionString = dbConnectionString;
+                try
                 {
-                    connection.Close();
+                    oCnn.Open();
+
+                    /*
+                    @Id int = null output,
+                    @Name VARCHAR(255),
+                    @Description NVARCHAR(1023),
+                    @StartDate DATETIME, 
+                    @EndDate DATETIME,
+                    @IsActive BIT
+                    */
+
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = oCnn;
+
+                        command.CommandText = "AddUpdateProject";
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("Id", SqlDbType.Int);
+                        command.Parameters["Id"].Value = project.Id;
+                        command.Parameters["Id"].Direction = ParameterDirection.InputOutput;
+
+                        command.Parameters.Add("Name", SqlDbType.VarChar, 255);
+                        command.Parameters["Name"].Value = project.Name;
+
+                        command.Parameters.Add("Description", SqlDbType.NVarChar, 1023);
+                        command.Parameters["Description"].Value = project.Description;
+
+                        command.Parameters.Add("StartDate", SqlDbType.DateTime);
+                        command.Parameters["StartDate"].Value = project.StartDate;
+
+                        command.Parameters.Add("EndDate", SqlDbType.DateTime);
+                        command.Parameters["EndDate"].Value = project.EndDate;
+
+                        command.Parameters.Add("IsActive", SqlDbType.Bit);
+                        command.Parameters["IsActive"].Value = project.IsActive;
+
+                        command.ExecuteNonQuery();
+
+                        int id = Convert.ToInt32(command.Parameters["Id"].Value);
+
+                        isValid = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    isValid = false;
                 }
             }
 
-            return isSuccess;
-
-
-
+            return isValid;
         }
 
-        public bool AddProject_Using_Adapter(Project project)
+        public bool Delete(int Id)
         {
-            bool isSuccess = false;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            connection.Open();
-
-            string sql = "INSERT INTO Projects (Name,StartDate,EndDate) values(@Name,@StartDate,@EndDate)";
-            try
-            {
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-
-                adapter.InsertCommand.CommandType = CommandType.Text;
-
-                adapter.InsertCommand.Parameters.Add("Name", SqlDbType.VarChar, 255);
-                adapter.InsertCommand.Parameters["Name"].Value = project.Name;
-
-                adapter.InsertCommand.Parameters.Add("StartDate", SqlDbType.DateTime);
-                adapter.InsertCommand.Parameters["StartDate"].Value = project.StartDate;
-
-                adapter.InsertCommand.Parameters.Add("EndDate", SqlDbType.DateTime);
-                adapter.InsertCommand.Parameters["EndDate"].Value = project.EndDate;
-
-                adapter.InsertCommand.ExecuteNonQuery();
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                isSuccess = false;
-            }
-            finally
-            {
-                adapter.Dispose();
-                connection.Close();
-            }
-
-            return isSuccess;
+            // TODO
+            return false;
         }
 
-        /// <summary>
-        /// Loading single record of the table project
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Project LoadProjectById(int id)
-        {
-            Project project;
-            SqlDataReader reader = null;
-            try
-            {
-                connection.Open();
 
-                SqlCommand oCmd = new SqlCommand();
-                oCmd.Connection = connection;
-                oCmd.CommandText = "SELECT * FROM Projects WHERE Id = @Id";
-                oCmd.CommandType = CommandType.Text;
 
-                oCmd.Parameters.Add("Id", SqlDbType.Int);
-                oCmd.Parameters["Id"].Value = id;
-
-                reader = oCmd.ExecuteReader();
-                project = new Project();
-                while (reader.Read())
-                {
-                    project.Id = Convert.ToInt32(reader["Id"]);
-                    project.Name = Convert.ToString(reader["Name"]);
-                    project.Description = Convert.ToString(reader["Description"]);
-                    project.StartDate = Convert.ToDateTime(reader["StartDate"]);
-                    project.EndDate = Convert.ToDateTime(reader["EndDate"]);
-                    project.IsActive = Convert.ToBoolean(reader["IsActive"]);
-
-                    //reader.NextResult();
-                }
-                
-            }
-            catch (Exception e)
-            {
-                project = null;
-            }
-            finally
-            {
-                if (connection.State != System.Data.ConnectionState.Closed)
-                {
-                    connection.Close();
-                }
-
-                reader.Close();
-            }
-
-            return project;
-        }
     }
+
 }

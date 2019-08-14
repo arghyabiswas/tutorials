@@ -64,58 +64,60 @@ namespace ConsoleApp1
         public static bool AddUpdateProject(Project project)
         {
             bool isValid = false;
-            SqlConnection oCnn = new SqlConnection();
 
-            oCnn.ConnectionString = databaseConnectionString;
-            try
+
+            using(SqlConnection oCnn = new SqlConnection())
             {
-                oCnn.Open();
-
-
-                SqlCommand command = new SqlCommand();
-                command.Connection = oCnn;
-
-                command.CommandText = "AddUpdateProject";
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add("Id", SqlDbType.Int);
-                command.Parameters["Id"].Value = project.Id;
-                command.Parameters["iD"].Direction = ParameterDirection.InputOutput;
-
-                command.Parameters.Add("Name", SqlDbType.VarChar, 255);
-                command.Parameters["Name"].Value = project.Name;
-
-                command.Parameters.Add("Description", SqlDbType.NVarChar, 1023);
-                command.Parameters["Description"].Value = project.Description;
-
-                command.Parameters.Add("StartDate", SqlDbType.DateTime);
-                command.Parameters["StartDate"].Value = project.SartDate;
-
-                command.Parameters.Add("EndDate", SqlDbType.DateTime);
-                command.Parameters["EndDate"].Value = project.EndDate;
-
-                command.Parameters.Add("IsActive", SqlDbType.Bit);
-                command.Parameters["IsActive"].Value = project.IsActive;
-
-                //command.ExecuteReader
-                //command.ExecuteScalar
-                command.ExecuteNonQuery();
-
-                int id = Convert.ToInt32( command.Parameters["iD"].Value);
-
-                isValid = true;
-
-
-            }
-            catch(Exception e)
-            {
-                isValid = false;
-            }
-            finally
-            {
-                if (oCnn.State != ConnectionState.Closed)
+                oCnn.ConnectionString = databaseConnectionString;
+                try
                 {
-                    oCnn.Close();
+                    oCnn.Open();
+
+                    /*
+                    @Id int = null output,
+                    @Name VARCHAR(255),
+                    @Description NVARCHAR(1023),
+                    @StartDate DATETIME, 
+                    @EndDate DATETIME,
+                    @IsActive BIT
+                    */
+
+                    using(SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = oCnn;
+
+                        command.CommandText = "AddUpdateProject";
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("Id", SqlDbType.Int);
+                        command.Parameters["Id"].Value = project.Id;
+                        command.Parameters["Id"].Direction = ParameterDirection.InputOutput;
+
+                        command.Parameters.Add("Name", SqlDbType.VarChar, 255);
+                        command.Parameters["Name"].Value = project.Name;
+
+                        command.Parameters.Add("Description", SqlDbType.NVarChar, 1023);
+                        command.Parameters["Description"].Value = project.Description;
+
+                        command.Parameters.Add("StartDate", SqlDbType.DateTime);
+                        command.Parameters["StartDate"].Value = project.SartDate;
+
+                        command.Parameters.Add("EndDate", SqlDbType.DateTime);
+                        command.Parameters["EndDate"].Value = project.EndDate;
+
+                        command.Parameters.Add("IsActive", SqlDbType.Bit);
+                        command.Parameters["IsActive"].Value = project.IsActive;
+
+                        command.ExecuteNonQuery();
+
+                        int id = Convert.ToInt32(command.Parameters["Id"].Value);
+
+                        isValid = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    isValid = false;
                 }
             }
 
