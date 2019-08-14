@@ -39,7 +39,7 @@ namespace ADO.NETTutorial
             if (dtProject.Rows.Count > 0)
             {
                 // Update
-                DataRow row = dtProject.Rows[0];
+                DataRow row = dtProject.Rows[2];
                 row.SetModified();
                 row["Name"] = "ASP.NET";
                 row["StartDate"] = DateTime.Now;
@@ -53,12 +53,12 @@ namespace ADO.NETTutorial
             row2["EndDate"] = DateTime.Now.AddDays(10);
             dtProject.Rows.Add(row2);
 
-            // Delete
+            //// Delete
             dtProject.Rows[1].Delete();
 
-            // update data adapter  
+            //// update data adapter  
             adapter.Update(ds, "Projects");
-            
+
             GridView1.DataSource = dtProject;
             GridView1.DataBind();
            

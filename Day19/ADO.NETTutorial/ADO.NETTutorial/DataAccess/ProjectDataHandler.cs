@@ -93,6 +93,7 @@ namespace ADO.NETTutorial.DataAccess
 
             return dtProjects;
         }
+
         public bool AddEditProject(Project project)
         {
             bool isValid = false;
@@ -162,8 +163,86 @@ namespace ADO.NETTutorial.DataAccess
             return false;
         }
 
+        public Project LoadProjectById(int id)
+        {
+            Project project = null;
+
+            connection.Open();
+
+            using(SqlCommand oCmd = new SqlCommand())
+            {
+
+                
 
 
+                oCmd.Connection = connection;
+
+                oCmd.CommandText = "SELECT COUNT(*) AS TOTAL  FROM Projects;SELECT * FROM Projects WHERE Id = @Id";
+                oCmd.CommandType = CommandType.Text;
+
+
+                oCmd.Parameters.Add("Id");
+                oCmd.Parameters["Id"].Value = id;
+
+                using (SqlDataReader reader = oCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int total = Convert.ToInt32(reader[0]);
+                    }
+
+                   if(reader.NextResult())
+                    {
+                        while (reader.Read())
+                        {
+                            project = new Project();
+                            project.Id = Convert.ToInt32(reader["Id"]);
+                            project.Name = Convert.ToString(reader["Name"]);
+
+                            if (reader["Description"] != DBNull.Value)
+                            {
+                                project.Description = Convert.ToString(reader["Description"]);
+                            }
+
+
+                            project.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                            project.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                            project.IsActive = Convert.ToBoolean(reader["IsActive"]);
+                        }
+                    }
+
+                   
+                }
+            }
+
+
+            return project;
+        }
+
+        public int CountTotal()
+        {
+            connection.Open();
+
+            using (SqlCommand oCmd = new SqlCommand())
+            {
+                oCmd.Connection = connection;
+
+                oCmd.CommandText = "SELECT COUNT(*) AS TOTAL  FROM Projects";
+                oCmd.CommandType = CommandType.Text;
+
+                int total = Convert.ToInt32(oCmd.ExecuteScalar());
+
+                return total;
+            }
+        }
+
+        ~ProjectDataHandler()
+        {
+            if(connection.State != ConnectionState.Closed)
+            {
+                connection.Close();
+            }
+        }
     }
 
 }
