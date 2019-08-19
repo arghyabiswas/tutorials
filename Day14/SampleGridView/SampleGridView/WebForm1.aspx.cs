@@ -103,12 +103,16 @@ namespace SampleGridView
             GridViewRow currentRow = gvEmployee.Rows[e.RowIndex];
 
             HiddenField employeeHidden = currentRow.FindControl("hidEmployeeId") as HiddenField;
+
             int employeeId = Convert.ToInt32(employeeHidden.Value);
             IEmployee employee = DataContext.Employees.FirstOrDefault(p => p.Employeeid == employeeId);
+
+            
             employee.Name = Convert.ToString(e.NewValues["Name"]);
             employee.Email = Convert.ToString(e.NewValues["Email"]);
 
             DropDownList managerDropdownList = currentRow.FindControl("ddlManager") as DropDownList;
+
             if (string.IsNullOrEmpty(managerDropdownList.SelectedValue))
             {
                 employee.ReportingManager = null;
@@ -116,10 +120,15 @@ namespace SampleGridView
             else
             {
                 int selectedManagerId = Convert.ToInt32(managerDropdownList.SelectedValue);
+
                 IEmployee manager = DataContext.Employees
                     .FirstOrDefault(p => p.Employeeid == selectedManagerId);
+
                 employee.ReportingManager = manager;
+
             }
+
+
             gvEmployee.EditIndex = -1;
             BindGrid();
         }
