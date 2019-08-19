@@ -28,6 +28,13 @@ namespace WebApplication1.DataAccess
             connection = new SqlConnection(dbConnectionString);
         }
 
+
+        public ProjectDataHandler(SqlConnection connection)
+        {
+            this.connection = connection;
+        }
+
+
         /// <summary>
         /// Checking if the database can be connected. using the provided connection string 
         /// </summary>
@@ -169,10 +176,10 @@ namespace WebApplication1.DataAccess
 
             connection.Open();
 
-            using(SqlCommand oCmd = new SqlCommand())
+            using (SqlCommand oCmd = new SqlCommand())
             {
 
-                
+
 
 
                 oCmd.Connection = connection;
@@ -181,7 +188,7 @@ namespace WebApplication1.DataAccess
                 oCmd.CommandType = CommandType.Text;
 
 
-                oCmd.Parameters.Add("Id");
+                oCmd.Parameters.Add("Id", SqlDbType.Int);
                 oCmd.Parameters["Id"].Value = id;
 
                 using (SqlDataReader reader = oCmd.ExecuteReader())
@@ -191,7 +198,7 @@ namespace WebApplication1.DataAccess
                         int total = Convert.ToInt32(reader[0]);
                     }
 
-                   if(reader.NextResult())
+                    if (reader.NextResult())
                     {
                         while (reader.Read())
                         {
@@ -211,7 +218,7 @@ namespace WebApplication1.DataAccess
                         }
                     }
 
-                   
+
                 }
             }
 
@@ -238,7 +245,7 @@ namespace WebApplication1.DataAccess
 
         ~ProjectDataHandler()
         {
-            if(connection.State != ConnectionState.Closed)
+            if (connection.State != ConnectionState.Closed)
             {
                 connection.Close();
             }
