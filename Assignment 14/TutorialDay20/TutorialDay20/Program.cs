@@ -11,7 +11,7 @@ namespace TutorialDay20
 {
     class Program
     {
-        string databaseConnectionString = @"Data Source=ASHUTOSHLTOP\SQL2014;Initial Catalog=TutorialDay19;Integrated Security=SSPI";
+        string databaseConnectionString = @"Data Source=ASHUTOSHDLTOP\SQL2014;Initial Catalog=TutorialDay19;Integrated Security=SSPI";
         SqlConnection conn;
         static void Main(string[] args)
         {
