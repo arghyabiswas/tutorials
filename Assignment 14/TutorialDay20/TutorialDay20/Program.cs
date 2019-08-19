@@ -33,7 +33,7 @@ namespace TutorialDay20
             var data = obj1.loadAllData();
             foreach (DataRow dataRow in data.Rows)
             {
-                Console.WriteLine($"{dataRow["ID"]} {dataRow["Name"]} {dataRow["Descriptions"]} {dataRow["StartDate"]} {dataRow["EndDate"]} {dataRow["isActive"]}");
+                Console.WriteLine($"{dataRow["ID"]} {dataRow["Name"]} {dataRow["Description"]} {dataRow["StartDate"]} {dataRow["EndDate"]} {dataRow["isActive"]}");
             }
             Console.ReadLine();
 
@@ -53,12 +53,12 @@ namespace TutorialDay20
                 Console.WriteLine("Deletion succesfull.");
             else
                 Console.WriteLine("Deletion unsuccesfull.");
-            Console.ReadLine();
+            
 
             var data1 = obj1.loadAllData();
             foreach (DataRow dataRow in data1.Rows)
             {
-                Console.WriteLine($"{dataRow["ID"]} {dataRow["Name"]} {dataRow["Descriptions"]} {dataRow["StartDate"]} {dataRow["EndDate"]} {dataRow["isActive"]}");
+                Console.WriteLine($"{dataRow["ID"]} {dataRow["Name"]} {dataRow["Description"]} {dataRow["StartDate"]} {dataRow["EndDate"]} {dataRow["isActive"]}");
             }
             Console.ReadLine();
 
@@ -101,7 +101,7 @@ namespace TutorialDay20
 
                 SqlCommand command = new SqlCommand();
                 command.Connection = p1.conn;
-                command.CommandText = "execute loadAllData;";
+                command.CommandText = "select * from dbo.Projects";
                 command.CommandType = CommandType.Text;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -133,7 +133,7 @@ namespace TutorialDay20
             try
             {
                 p1.conn.Open();
-                SqlCommand command = new SqlCommand($"execute deleteRecord {id}", p1.conn);
+                SqlCommand command = new SqlCommand($"execute DeleteProject {id}", p1.conn);
                 command.ExecuteNonQuery();
                 isDeleted = true;
             }
